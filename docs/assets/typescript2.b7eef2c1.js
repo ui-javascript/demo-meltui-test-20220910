@@ -9,3 +9,4 @@
  */
     
 const o=o=>o;export{o as m};
+//# sourceMappingURL=typescript2.b7eef2c1.js.map

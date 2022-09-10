@@ -9,3 +9,4 @@
  */
     
 function n(n){return null==n}class r extends Error{constructor(n){super(n),this.name="ElementPlusError"}}function t(n,t){throw new r(`[${n}] ${t}`)}function s(n,r){}export{s as d,n as i,t};
+//# sourceMappingURL=error2.13f96d52.js.map
