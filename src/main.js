@@ -27,7 +27,15 @@ if (useSettingsStore().app.iconifyOfflineUse) {
     downloadAndInstall()
 }
 
+import ArcoVue from '@arco-design/web-vue'
+import '@arco-design/web-vue/dist/arco.css'
+
 // 全局样式
 import '@/assets/styles/globals.scss'
+
+app.use(ArcoVue, {
+    // componentPrefix: '',
+    size: 'small'
+})
 
 app.mount('#app')
