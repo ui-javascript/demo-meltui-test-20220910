@@ -96,6 +96,9 @@ module.exports = {
         }],
         'vue/script-indent': [2, 4, {
             'switchCase': 1
-        }]
+        }],
+
+        // 自定义
+        'no-unused-vars': 'off'
     }
 };

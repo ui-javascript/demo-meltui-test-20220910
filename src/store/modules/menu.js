@@ -166,7 +166,7 @@ const useMenuStore = defineStore(
                         if (
                             item.children.some(r => {
                                 if (!data) {
-                                    debugger
+                                    // debugger
                                 }
 
                                 return data.indexOf(r.path + '/') === 0 || data == r.path

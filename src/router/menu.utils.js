@@ -1,60 +1,57 @@
 // import { sortBy } from "lodash"
-export const convertMenu = (array) => {
-	const routes = []
+export const convertMenu = array => {
+    const routes = []
 
-	array.forEach(item => {
-		let editingItem = routes
+    array.forEach(item => {
+        let editingItem = routes
 
         // if (item.path === "") {
         //     item.path = "/index"
         // }
-		const keyList = item.path.split('/')
-		keyList.shift()
+        const keyList = item.path.split('/')
+        keyList.shift()
 
-		let uniName = ""
+        let uniName = ''
 
-		keyList.forEach((key, idx) => {
-			uniName += (uniName === "" ? key : "-" + key)
+        keyList.forEach((key, idx) => {
+            uniName += (uniName === '' ? key : '-' + key)
 
             if (!editingItem) {
-                debugger
-                console.error("跳过存在首页覆盖问题的路由")
+                console.error('跳过存在首页覆盖问题的路由')
                 return
             }
-			let itemm = editingItem.find(i => i.uid === uniName)
+            let itemm = editingItem.find(i => i.uid === uniName)
 
-			if (itemm == null) {
-				itemm = {
-					uid: uniName,
-					// title: uniName,
-					// icon: 'sidebar-menu',
-					// path: "/" + key,
-					path: idx < keyList.length - 1 ? null : item.path,
-					children: idx < keyList.length - 1 ? [] : null,
+            if (itemm == null) {
+                itemm = {
+                    uid: uniName,
+                    // title: uniName,
+                    // icon: 'sidebar-menu',
+                    // path: "/" + key,
+                    path: idx < keyList.length - 1 ? null : item.path,
+                    children: idx < keyList.length - 1 ? [] : null,
                     // children: [],
-					// component: idx < keyList.length - 1 ? item.layout : item.component,
-					meta: {
+                    // component: idx < keyList.length - 1 ? item.layout : item.component,
+                    meta: {
 
-					}
-				}
-				editingItem.push(itemm)
-			}
+                    }
+                }
+                editingItem.push(itemm)
+            }
 
             itemm.meta = {
                 ...item.meta,
                 title: itemm.meta.title ?? (idx < keyList.length - 1 ? item.meta.parentTitle : item.meta.title),
-                icon: itemm.meta.icon ?? (idx < keyList.length - 1 ? item.meta.parentIcon : item.meta.icon), // || 'sidebar-menu'
+                icon: itemm.meta.icon ?? (idx < keyList.length - 1 ? item.meta.parentIcon : item.meta.icon) // || 'sidebar-menu'
             }
 
-			editingItem = itemm.children
-		})
+            editingItem = itemm.children
+        })
 
-	})
+    })
 
-	return routes
+    return routes
 }
-
-
 
 // const array = [
 //     {

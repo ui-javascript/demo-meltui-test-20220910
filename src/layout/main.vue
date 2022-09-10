@@ -81,13 +81,13 @@ function switchMenu(index) {
                     <Topbar v-if="!(settingsStore.menu.menuMode === 'head' && !settingsStore.topbar.enableSidebarCollapse && !settingsStore.topbar.enableBreadcrumb)" />
                     <div class="main">
                         <page-main>
-                        <router-view v-slot="{ Component, route }">
-                            <transition name="main" mode="out-in" appear>
-                                <keep-alive :include="keepAliveStore.list">
-                                    <component :is="Component" :key="route.fullPath" />
-                                </keep-alive>
-                            </transition>
-                        </router-view>
+                            <router-view v-slot="{ Component, route }">
+                                <transition name="main" mode="out-in" appear>
+                                    <keep-alive :include="keepAliveStore.list">
+                                        <component :is="Component" :key="route.fullPath" />
+                                    </keep-alive>
+                                </transition>
+                            </router-view>
                         </page-main>
                     </div>
                     <Copyright v-if="showCopyright" />

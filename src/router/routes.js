@@ -101,8 +101,6 @@ let systemRoutes = [
     }
 ]
 
-
-
 // 动态路由（异步路由、导航栏路由）
 let asyncRoutes = [
 
@@ -120,15 +118,13 @@ if (useSettingsStore(pinia).app.routeBaseOn === 'filesystem') {
     }))
 }
 
-
-
-const convertNameAndPath = (routes) => {
+const convertNameAndPath = routes => {
     routes.forEach(item => {
         if (item.name) {
-            item.name = item.name.replace(/(^\d+-)|-\d+/g, "")
+            item.name = item.name.replace(/(^\d+-)|-\d+/g, '')
         }
         if (item.path) {
-            item.path = item.path.replace(/(^\/\d+-)|\/\d+-/g, "/")
+            item.path = item.path.replace(/(^\/\d+-)|\/\d+-/g, '/')
         }
 
         if (item.children) {
