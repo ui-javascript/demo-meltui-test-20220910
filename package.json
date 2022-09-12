@@ -15,7 +15,7 @@
         "postinstall": "esno scripts/prepare.js"
     },
     "dependencies": {
-        "@arco-design/web-vue": "^2.34.1",
+        "@arco-design/web-vue": "^2.36.1",
         "@tinymce/tinymce-vue": "^5.0.0",
         "@vueuse/core": "^8.7.4",
         "@vueuse/integrations": "^8.7.4",
