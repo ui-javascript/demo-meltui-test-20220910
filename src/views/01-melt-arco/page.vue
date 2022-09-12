@@ -11,14 +11,12 @@
 </route>
 
 <template>
-    <div>
-        <ArcoCrudTable
-            class="mt-2"
-            :options="options"
-            :schema="schema"
-            @showItem="showItem"
-        />
-    </div>
+    <ArcoCrudTable
+        class="mt-2"
+        :options="options"
+        :schema="schema"
+        @showItem="showItem"
+    />
 </template>
 
 <script setup>
@@ -46,43 +44,27 @@ let options = ref(new CrudOptions()
     // .body().virtualList().height(400)
     // .body().scroll().y(400)
     .column().resizable()   // .body().scroll().x(1000)
+
     .baseUrl('https://mock.apifox.cn/m1/1087009-0-default/api')
-    .fetchList().get('/v1/fetchList')
-    .viewOperation().fetch().get('/v1/fetch')
-    .editOperation().update().post('/v1/update')
-    .editBatchOperation().updateBatch().post('/v1/updateBatch')
-    .addOperation().save().post('/v1/save')
-    .removeOperation().needConfirm().confirmText('确定删除吗?').delete().post('/v1/delete')
-    .removeBatchOperation().deleteBatch().post('/v1/deleteBatch')
-    .customOperation('自定义').clickEmit('showItem')
-    .save().get('/v1/fetchList')
+    .fetchList().get('/v1/fetchList') // 初始化列表
+    .viewOperation().fetch().get('/v1/fetch') // 查看1条数据
+    .editOperation().update().post('/v1/update') // 更新1条数据
+    .editBatchOperation().updateBatch().post('/v1/updateBatch') // 批量更新
+    .addOperation().save().post('/v1/save') // 新增1条数据
+    .removeOperation().delete().post('/v1/delete') // 删除1条数据
+    .needConfirm().confirmText('确定删除吗?') // 删除前需要确认
+    .removeBatchOperation().deleteBatch().post('/v1/deleteBatch') // 批量删除
+    .customOperation('自定义').clickEmit('showItem') // 自定义按钮
+
     // .customOperation("自定义2").clickEmit("showItem")
     .parse())
 
 console.log(options.value)
 
-watch(() => editable.value, current => {
-    // console.log(current, prev)
-    // console.log(new CrudOptions(options.value).edit(current).parse())
-    options.value = new CrudOptions(options.value).edit(current).parse()
-    // console.log("更新")
-    // console.log(JSON.stringify(options.value))
-}, {
-    deep: true
-})
-watch(() => searchable.value, current => {
-    // console.log(current, prev)
-    // console.log(new CrudOptions(options.value).edit(current).parse())
-    options.value = new CrudOptions(options.value).search(current).parse()
-    // console.log("更新")
-    // console.log(JSON.stringify(options.value))
-}, {
-    deep: true
-})
 const schema = ref({
     name: new FormSchema()
         .title().upperFirst()
-        // .width(200)
+        .width(200)
         .left().format('{{ \'[No.\' + (rowIndex+1)  + \']\' + record.name }}')
         .readonly()
         .column().fixed().left()
@@ -91,7 +73,7 @@ const schema = ref({
         .parse(),
     salary: new FormSchema()
         .title('工资')
-        // .width(150).center()
+        .width(150).center()
         .inputNumber().placeholder('输入工资').clearable(false)
         // .props({
         //     allowClear: true
@@ -106,7 +88,7 @@ const schema = ref({
 
     address: new FormSchema()
         .title('地址')
-        // .width(250).center()
+        .width(150).center()
         .filterable()
         // .startsWith("北京海淀").startsWith("35 Park Road")
         // .startsWith(["北京海淀", "35 Park Road"])
@@ -117,7 +99,7 @@ const schema = ref({
         .props({
             autoSize: true
         })
-        // .cell().ellipsis().tooltip().width(150) // width会覆盖
+        .cell().ellipsis().tooltip().width(150) // width会覆盖
         .searchable().advancedOnly() // .placeholder("{{ '请输入' + column.title }}")
         .readonly()
         .parse(),
@@ -152,5 +134,24 @@ const showItem = argv => {
         content: JSON.stringify(record, null, 2)
     })
 }
+
+watch(() => editable.value, current => {
+    // console.log(current, prev)
+    // console.log(new CrudOptions(options.value).edit(current).parse())
+    options.value = new CrudOptions(options.value).edit(current).parse()
+    // console.log("更新")
+    // console.log(JSON.stringify(options.value))
+}, {
+    deep: true
+})
+watch(() => searchable.value, current => {
+    // console.log(current, prev)
+    // console.log(new CrudOptions(options.value).edit(current).parse())
+    options.value = new CrudOptions(options.value).search(current).parse()
+    // console.log("更新")
+    // console.log(JSON.stringify(options.value))
+}, {
+    deep: true
+})
 
 </script>
