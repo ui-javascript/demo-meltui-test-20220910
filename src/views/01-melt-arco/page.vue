@@ -72,7 +72,7 @@ const schema = ref({
         .column().fixed().left()
         .input().placeholder('输入姓名').clearable()
         .searchable() // .placeholder("{{ '请输入' + column.title }}")
-        .validatable().required(true)
+        .validatable().required()
         .parse(),
     salary: new FormSchema()
         .title('工资')
@@ -87,7 +87,7 @@ const schema = ref({
         .gt([25000, 1000000])
         // .filter("{{ record.salary > value[0] }}")
         .searchable().advancedOnly() // .placeholder("{{ '请输入' + column.title }}")
-        .validatable().required(true).min(1500)
+        .validatable().required().min(1500)
         .parse(),
 
     address: new FormSchema()
@@ -106,7 +106,7 @@ const schema = ref({
         .cell().ellipsis().tooltip().width(150) // width会覆盖
         .searchable().advancedOnly() // .placeholder("{{ '请输入' + column.title }}")
         .readonly()
-        .validatable(false).required(true)
+        .validatable(false).required()
         .parse(),
     province: new FormSchema()
         .title('省份')
