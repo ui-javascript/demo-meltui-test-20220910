@@ -25,7 +25,7 @@
         "hotkeys-js": "^3.9.4",
         "js-cookie": "^3.0.1",
         "lodash": "^4.17.21",
-        "meltui": "^0.0.16",
+        "meltui": "^0.0.17",
         "mitt": "^3.0.0",
         "mockjs": "^1.1.0",
         "nprogress": "^0.2.0",
