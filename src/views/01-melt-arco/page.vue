@@ -52,8 +52,8 @@ let options = ref(new CrudOptions()
     .editBatchOperation().updateBatch().post('/v1/updateBatch') // 批量更新
     .addOperation().save().post('/v1/save') // 新增1条数据
     .removeOperation()
-        .needConfirm().confirmText('确定删除吗?') // 删除前需要确认
-        .delete().post('/v1/delete') // 删除1条数据
+    .needConfirm().confirmText('确定删除吗?') // 删除前需要确认
+    .delete().post('/v1/delete') // 删除1条数据
 
     .removeBatchOperation().deleteBatch().post('/v1/deleteBatch') // 批量删除
     .customOperation('自定义').clickEmit('showItem') // 自定义按钮
@@ -96,7 +96,7 @@ const schema = ref({
         .filterable()
         // .startsWith("北京海淀").startsWith("35 Park Road")
         // .startsWith(["北京海淀", "35 Park Road"])
-        .includes(['北京', '绵阳', 'Park Road'])
+        .contains(['北京', '绵阳', 'Park Road'])
         // .filter(`{{ record.address.startsWith(value[0]) }}`) // 也可以不用写
         .textArea().clearable()
         .placeholder('{{ \'请输入\' + (record.name ? record.name + \'的\' : \'\') + \'地址\'}}')
