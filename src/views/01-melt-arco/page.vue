@@ -43,7 +43,7 @@ let options = ref(new CrudOptions()
     // .row().expand().width(50).title('展开行').render("{{ record.key % 2 === 1 ? '我的名字是 is' + record.name + ', 我的地址是 ' + record.address : JSON.stringify(record, null, 2)  }}")
     // @fix 开启虚拟列表后 复选款无法勾选 --> v-model:selected-keys
     // .body().virtualList().height(400)
-    .body().scroll().y(400)
+    // .body().scroll().y(400)
     .column().resizable()   // .body().scroll().x(1000)
     .baseUrl('https://mock.apifox.cn/m1/1087009-0-default/api')
     .fetchList().get('/v1/fetchList')
