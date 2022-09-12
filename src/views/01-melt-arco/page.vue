@@ -1,10 +1,11 @@
 <route>
 {
     meta: {
+        layout: "main",
         title: "Arco",
         parentTitle: "MeltUI",
-        layout: "main",
-        parentIcon: "config"
+        icon: "config",
+        parentIcon: "eye",
     }
 }
 </route>
