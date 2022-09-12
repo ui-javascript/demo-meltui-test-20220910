@@ -2,7 +2,7 @@
 {
     meta: {
         layout: "main",
-        title: "Arco",
+        title: "Arco基础示例",
         parentTitle: "MeltUI",
         icon: "config",
         parentIcon: "eye",
@@ -51,8 +51,10 @@ let options = ref(new CrudOptions()
     .editOperation().update().post('/v1/update') // 更新1条数据
     .editBatchOperation().updateBatch().post('/v1/updateBatch') // 批量更新
     .addOperation().save().post('/v1/save') // 新增1条数据
-    .removeOperation().delete().post('/v1/delete') // 删除1条数据
-    .needConfirm().confirmText('确定删除吗?') // 删除前需要确认
+    .removeOperation()
+        .needConfirm().confirmText('确定删除吗?') // 删除前需要确认
+        .delete().post('/v1/delete') // 删除1条数据
+
     .removeBatchOperation().deleteBatch().post('/v1/deleteBatch') // 批量删除
     .customOperation('自定义').clickEmit('showItem') // 自定义按钮
 
@@ -70,6 +72,7 @@ const schema = ref({
         .column().fixed().left()
         .input().placeholder('输入姓名').clearable()
         .searchable() // .placeholder("{{ '请输入' + column.title }}")
+        .validatable().required(true)
         .parse(),
     salary: new FormSchema()
         .title('工资')
@@ -84,6 +87,7 @@ const schema = ref({
         .gt([25000, 1000000])
         // .filter("{{ record.salary > value[0] }}")
         .searchable().advancedOnly() // .placeholder("{{ '请输入' + column.title }}")
+        .validatable().required(true).min(1500)
         .parse(),
 
     address: new FormSchema()
@@ -102,6 +106,7 @@ const schema = ref({
         .cell().ellipsis().tooltip().width(150) // width会覆盖
         .searchable().advancedOnly() // .placeholder("{{ '请输入' + column.title }}")
         .readonly()
+        .validatable(false).required(true)
         .parse(),
     province: new FormSchema()
         .title('省份')
