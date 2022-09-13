@@ -43,7 +43,7 @@ let options = ref(new CrudOptions()
     // @fix 开启虚拟列表后 复选款无法勾选 --> v-model:selected-keys
     // .body().virtualList().height(400)
     // .body().scroll().y(400)
-    .column().resizable()   // .body().scroll().x(1000)
+    // .column().resizable()   // .body().scroll().x(1000)
 
     .baseUrl('https://mock.apifox.cn/m1/1087009-0-default/api')
     .fetchList().get('/v1/fetchList') // 初始化列表
@@ -65,9 +65,9 @@ console.log(options.value)
 
 const schema = ref({
     name: new FormSchema()
-        .title().upperFirst()
+        .title('姓名').center().upperFirst()
         .width(200)
-        .left().format('{{ \'[No.\' + (rowIndex+1)  + \']\' + record.name }}')
+        .format('{{ \'[No.\' + (rowIndex+1)  + \']\' + record.name }}')
         .readonly()
         .column().fixed().left()
         .input().placeholder('输入姓名').clearable()
@@ -92,7 +92,7 @@ const schema = ref({
 
     address: new FormSchema()
         .title('地址')
-        .width(150).center()
+        .width(150).left()
         .filterable()
         // .startsWith("北京海淀").startsWith("35 Park Road")
         // .startsWith(["北京海淀", "35 Park Road"])
