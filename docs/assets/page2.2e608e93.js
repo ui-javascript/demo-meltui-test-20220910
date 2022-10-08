@@ -1,0 +1,12 @@
+
+/**
+ * 由 Fantastic-admin 提供技术支持
+ * Powered by Fantastic-admin
+ * https://fantastic-admin.netlify.app
+ * 代码仓库
+ * Gitee  https://gitee.com/hooray/fantastic-admin
+ * Github https://github.com/hooray/fantastic-admin
+ */
+    
+import{U as e,E as a,P as t}from"./melt-crud.829d61cf.js";import{A as l,w as r,t as s,j as i,h as o,bg as n,bC as c}from"./index.eae74150.js";const d={__name:"page2",setup(n){const d=l(!0),p=l(!1);let m=l((new e).edit(p.value).row().hover().border().stripe().size().small().layout().search(d.value).inline().cols().sm(1).md(2).xl(2).column().resizable().baseUrl("https://mock.apifox.cn/m1/1087009-0-default/api").fetchList().get("/v1/fetchList").viewOperation().fetch().get("/v1/fetch").addOperation().save().post("/v1/save").removeOperation().needConfirm().confirmText("确定删除吗?").delete().post("/v1/delete").removeBatchOperation().deleteBatch().post("/v1/deleteBatch").customOperation("自定义").clickEmit("showItem").parse());const h=l({name:(new a).title("姓名").center().upperFirst().width(200).format("{{ '[No.' + (rowIndex+1)  + ']' + record.name }}").readonly().column().fixed().left().input().placeholder("输入姓名").clearable().searchable().validatable().required().parse(),salary:(new a).title("工资").width(150).center().inputNumber().placeholder("输入工资").clearable(!1).sortable().asc().desc().filterable().gt(2e4).gt([25e3,1e6]).searchable().advancedOnly().validatable().required().min(1500).parse(),address:(new a).title("地址").width(150).left().filterable().contains(["北京","绵阳","Park Road"]).textArea().clearable().placeholder("{{ '请输入' + (record.name ? record.name + '的' : '') + '地址'}}").props({autoSize:!0}).cell().ellipsis().tooltip().width(150).searchable().advancedOnly().readonly().validatable(!1).required().parse(),province:(new a).title("省份").width(150).center().select({province:["北京","四川","广东"],"北京":["海淀","朝阳","昌平"],"四川":["成都","绵阳"],"广东":["广州","深圳"]}).parse(),city:(new a).title("城市").width(150).center().select().keepWatch("province").parse()}),u=e=>{const{record:a}=e;c.info({title:"Info Title",content:JSON.stringify(a,null,2)})};return r((()=>p.value),(a=>{m.value=new e(m.value).edit(a).parse()}),{deep:!0}),r((()=>d.value),(a=>{m.value=new e(m.value).search(a).parse()}),{deep:!0}),(e,a)=>(s(),i(o(t),{class:"mt-2",options:o(m),schema:h.value,onShowItem:u},null,8,["options","schema"]))}};"function"==typeof n&&n(d);export{d as default};
+//# sourceMappingURL=page2.2e608e93.js.map

@@ -1,0 +1,12 @@
+
+/**
+ * 由 Fantastic-admin 提供技术支持
+ * Powered by Fantastic-admin
+ * https://fantastic-admin.netlify.app
+ * 代码仓库
+ * Gitee  https://gitee.com/hooray/fantastic-admin
+ * Github https://github.com/hooray/fantastic-admin
+ */
+    
+import{U as e,E as t,P as a}from"./melt-crud.829d61cf.js";import{A as r,w as l,t as o,j as s,h as i,bg as c,bC as n}from"./index.eae74150.js";const d={__name:"page",setup(c){const d=r(!0),p=r(!1);let h=r((new e).edit(p.value).row().hover().border().stripe().size().small().layout().search(d.value).inline().cols().sm(1).md(2).xl(2).row().selection().checkboxType().checkAll().baseUrl("https://mock.apifox.cn/m1/1087009-0-default/api").fetchList().get("/v1/fetchList").viewOperation().fetch().get("/v1/fetch").editOperation().update().post("/v1/update").editBatchOperation().updateBatch().post("/v1/updateBatch").addOperation().save().post("/v1/save").removeOperation().needConfirm().confirmText("确定删除吗?").delete().post("/v1/delete").removeBatchOperation().deleteBatch().post("/v1/deleteBatch").customOperation("自定义").clickEmit("showItem").parse());const u=r({name:(new t).title("姓名").center().upperFirst().width(200).format("{{ '[No.' + (rowIndex+1)  + ']' + record.name }}").readonly().column().fixed().left().input().placeholder("输入姓名").clearable().searchable().validatable().required().parse(),salary:(new t).title("工资").width(150).center().inputNumber().placeholder("输入工资").clearable(!1).sortable().asc().desc().filterable().gt(2e4).gt([25e3,1e6]).searchable().advancedOnly().validatable().required().min(1500).parse(),address:(new t).title("地址").width(150).left().filterable().contains(["北京","绵阳","Park Road"]).textArea().clearable().placeholder("{{ '请输入' + (record.name ? record.name + '的' : '') + '地址'}}").props({autoSize:!0}).cell().ellipsis().tooltip().width(150).searchable().advancedOnly().readonly().validatable(!1).required().parse(),province:(new t).title("省份").width(150).center().select({province:["北京","四川","广东"],"北京":["海淀","朝阳","昌平"],"四川":["成都","绵阳"],"广东":["广州","深圳"]}).parse(),city:(new t).title("城市").width(150).center().select().keepWatch("province").parse()}),m=e=>{const{record:t}=e;n.info({title:"Info Title",content:JSON.stringify(t,null,2)})};return l((()=>p.value),(t=>{h.value=new e(h.value).edit(t).parse()}),{deep:!0}),l((()=>d.value),(t=>{h.value=new e(h.value).search(t).parse()}),{deep:!0}),(e,t)=>(o(),s(i(a),{class:"mt-2",options:i(h),schema:u.value,onShowItem:m},null,8,["options","schema"]))}};"function"==typeof c&&c(d);export{d as default};
+//# sourceMappingURL=page.db60ac91.js.map
